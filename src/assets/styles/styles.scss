@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+.btn {
+    cursor: pointer;
+    background-color: $color-special;
+    border: none;
+    padding: $padding $padding*2;
+    border-radius: $radius;
+    color: $color-light;
+}
+.link {
+    color: #2c3e50;
+}

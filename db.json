@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "image": "1.jpg",
+      "name": "T-shirt 1",
+      "price": 1500,
+      "article": "T1",
+      "available": true,
+      "category": "Man",
+      "quantity": 1
+    },
+    {
+      "image": "2.jpg",
+      "name": "T-shirt 2",
+      "price": 1200,
+      "article": "T2",
+      "available": true,
+      "category": "Woman",
+      "quantity": 1
+    },
+    {
+      "image": "3.jpg",
+      "name": "T-shirt 3",
+      "price": 980,
+      "article": "T3",
+      "available": false,
+      "category": "Woman",
+      "quantity": 1
+    },
+    {
+      "image": "4.jpg",
+      "name": "T-shirt 4",
+      "price": 1680,
+      "article": "T4",
+      "available": true,
+      "category": "Man",
+      "quantity": 1
+    },
+    {
+      "image": "5.jpg",
+      "name": "T-shirt 5",
+      "price": 1900,
+      "article": "T5",
+      "available": false,
+      "category": "Woman",
+      "quantity": 1
+    },
+    {
+      "image": "6.jpg",
+      "name": "T-shirt 6",
+      "price": 1799,
+      "article": "T6",
+      "available": true,
+      "category": "Woman",
+      "quantity": 1
+    }
+  ]
+}
