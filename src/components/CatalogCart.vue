@@ -38,7 +38,7 @@
     .catalog-cart {
         margin-bottom: 100px;
         @media (max-width: 470px) {
-            margin-top: 100px;
+            margin-top: 80px;
         }
         &__total {
             position: fixed;
@@ -51,6 +51,9 @@
             background-color: $color-special;
             color: $color-light;
             font-size: 20px;
+            @media (max-width: 470px) {
+                padding: $padding;
+            }
         }
         &__total-special {
             margin-right: $margin*2;
