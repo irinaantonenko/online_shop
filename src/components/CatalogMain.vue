@@ -52,6 +52,9 @@
 </script>
 <style lang="scss">
     .catalog {
+        @media (max-width: 470px) {
+            margin-top: 80px;
+        }
         &__list {
             display: flex;
             flex-wrap: wrap;
