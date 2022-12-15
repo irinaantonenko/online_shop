@@ -36,7 +36,11 @@
         flex-basis: 25%;
         box-shadow: 0 0 8px 0 $color-shadow;
         padding: $padding*2;
-        margin-bottom: $margin*2;
+        margin: 0 auto $margin*2;        
+        min-width: 150px;
+        @media (max-width: 470px) {
+            padding: $padding;
+        }
         &__image-wrap {
             width: 100px;
             overflow: hidden;

@@ -1,5 +1,11 @@
 @import "./variables.scss";
 
+body {
+    font-size: 14px;
+    @media (max-width: 470px) {
+        font-size: 12px;
+    }
+}
 .btn {
     cursor: pointer;
     background-color: $color-special;
@@ -7,6 +13,9 @@
     padding: $padding $padding*2;
     border-radius: $radius;
     color: $color-light;
+    @media (max-width: 470px) {
+        padding: $padding;
+    }
 }
 .link {
     color: #2c3e50;

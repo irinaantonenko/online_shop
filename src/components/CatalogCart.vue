@@ -37,6 +37,9 @@
 <style lang="scss">
     .catalog-cart {
         margin-bottom: 100px;
+        @media (max-width: 470px) {
+            margin-top: 100px;
+        }
         &__total {
             position: fixed;
             bottom: 0;

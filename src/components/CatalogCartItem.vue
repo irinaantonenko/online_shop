@@ -56,7 +56,10 @@
         margin-bottom: $margin*2;
         &__wrap {
             max-width: 100px;
-            overflow: hidden;      
+            overflow: hidden;  
+            @media (max-width: 470px) {
+                max-width: 80px;
+            }    
         }
         &__image {
             object-fit: cover;
