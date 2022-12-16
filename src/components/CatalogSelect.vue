@@ -65,6 +65,10 @@
         position: relative;
         width: 100px;
         cursor: pointer;
+        margin-left: 20px;
+        @media (max-width: 348px) {
+            margin: 0 auto;
+        }
         &__title {
             border: solid 1px $color-border;
         }
