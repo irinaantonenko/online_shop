@@ -69,7 +69,8 @@
             border: solid 1px $color-border;
         }
         &__options-item {
-            margin: 0;
+            margin: 0;            
+            padding-left: 4px;
             &:hover {
                 background-color: $color-shadow;
             }
@@ -79,10 +80,9 @@
             position: absolute;
             top: 20px;
             right: 0;
-            width: calc(100% - 6px);
+            width: calc(100% - 2px);
             background-color: $color-light;
             text-align: left;
-            padding-left: 4px;
         }
     }
 </style>
