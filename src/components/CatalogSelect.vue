@@ -80,6 +80,7 @@
             top: 20px;
             right: 0;
             width: 100%;
+            background-color: $color-light;
         }
     }
 </style>

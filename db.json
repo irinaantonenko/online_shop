@@ -6,7 +6,7 @@
       "price": 1500,
       "article": "T1",
       "available": true,
-      "category": "Man",
+      "category": "Male",
       "quantity": 1
     },
     {
@@ -15,7 +15,7 @@
       "price": 1200,
       "article": "T2",
       "available": true,
-      "category": "Woman",
+      "category": "Female",
       "quantity": 1
     },
     {
@@ -24,7 +24,7 @@
       "price": 980,
       "article": "T3",
       "available": false,
-      "category": "Woman",
+      "category": "Female",
       "quantity": 1
     },
     {
@@ -33,7 +33,7 @@
       "price": 1680,
       "article": "T4",
       "available": true,
-      "category": "Man",
+      "category": "Male",
       "quantity": 1
     },
     {
@@ -42,7 +42,7 @@
       "price": 1900,
       "article": "T5",
       "available": false,
-      "category": "Woman",
+      "category": "Female",
       "quantity": 1
     },
     {
@@ -51,7 +51,34 @@
       "price": 1799,
       "article": "T6",
       "available": true,
-      "category": "Woman",
+      "category": "Female",
+      "quantity": 1
+    },
+    {
+      "image": "7.jpg",
+      "name": "T-shirt 7",
+      "price": 1399,
+      "article": "T7",
+      "available": true,
+      "category": "Male",
+      "quantity": 1
+    },
+    {
+      "image": "8.jpg",
+      "name": "T-shirt 8",
+      "price": 1449,
+      "article": "T8",
+      "available": true,
+      "category": "Female",
+      "quantity": 1
+    },
+    {
+      "image": "9.jpg",
+      "name": "T-shirt 9",
+      "price": 999,
+      "article": "T9",
+      "available": true,
+      "category": "Female",
       "quantity": 1
     }
   ]

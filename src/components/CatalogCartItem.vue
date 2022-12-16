@@ -69,6 +69,9 @@
         }
         &__btn {
             cursor: pointer;
-        }
+            &:hover {
+                opacity: 0.6;
+            }
+        }        
     }    
 </style>

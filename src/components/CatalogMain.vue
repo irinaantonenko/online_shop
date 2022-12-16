@@ -7,14 +7,13 @@
         </router-link>      
         <h1>Catalog</h1>
         <catalog-select
-            :options="options"
-            @select="optionSelect"
+            :options="categories"
+            @select="sortByCategories"
             :selected="selected"
         />
-        <p>{{selected}}</p>
         <div class="catalog__list">
             <catalog-item
-                v-for="product in PRODUCTS"
+                v-for="product in filteredProducts"
                 :key="product.article"
                 :product_data="product"
                 @addToCart="addToCart"
@@ -35,14 +34,13 @@
         },
         data() {
             return {
-                options: [
-                    {name: 'Option 1', value: '1'},
-                    {name: 'Option 2', value: '2'},
-                    {name: 'Option 3', value: '3'},
-                    {name: 'Option 4', value: '4'},
-                    {name: 'Option 5', value: '5'}
+                categories: [
+                    {name: 'All', value: 'All'},
+                    {name: 'Male', value: 'M'},
+                    {name: 'Female', value: 'F'}
                 ],
-                selected: 'Select'
+                selected: 'All',
+                sortedProducts: []
             }
         },
         computed: {
@@ -50,6 +48,13 @@
                 'PRODUCTS',
                 'CART'
             ]),
+            filteredProducts() {
+                if (this.sortedProducts.length) {
+                    return this.sortedProducts
+                } else {
+                   return this.PRODUCTS
+                }
+            }
         },
         methods: {
             ...mapActions([
@@ -59,8 +64,15 @@
             addToCart(data) {
                 this.ADD_TO_CART(data)
             },
-            optionSelect(option) {
-                this.selected = option.name
+            sortByCategories(category) {
+                this.sortedProducts = [];
+                let select = this;
+                this.PRODUCTS.map(function(item) {
+                    if (item.category === category.name) {
+                        select.sortedProducts.push(item);
+                    }
+                });
+                this.selected = category.name;
             }
         },
         mounted() {
