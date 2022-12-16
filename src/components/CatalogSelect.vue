@@ -63,7 +63,7 @@
 <style lang="scss">
     .catalog-select {
         position: relative;
-        width: 200px;
+        width: 100px;
         cursor: pointer;
         &__title {
             border: solid 1px $color-border;
@@ -79,8 +79,10 @@
             position: absolute;
             top: 20px;
             right: 0;
-            width: 100%;
+            width: calc(100% - 6px);
             background-color: $color-light;
+            text-align: left;
+            padding-left: 4px;
         }
     }
 </style>
