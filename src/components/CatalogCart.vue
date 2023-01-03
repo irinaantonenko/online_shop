@@ -54,6 +54,7 @@
             font-size: 20px;
             @media (max-width: 470px) {
                 padding: $padding;
+                font-size: 16px;
             }
         }
         &__total-special {

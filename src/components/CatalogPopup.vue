@@ -72,6 +72,10 @@
         left: calc(50% - 200px);
         z-index: 333;
         background-color: $color-light;
+        @media (max-width: 768px) {
+            width: 300px;
+            left: calc(50% - 150px);
+        }
         &__wrapper {
             display: flex;
             align-items: center;

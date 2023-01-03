@@ -156,7 +156,9 @@
         &__filters {
             display: flex;
             justify-content: space-between;
-            align-items: center;            
+            align-items: center;  
+            margin: 0 auto;     
+            max-width: 700px;     
         }
         &__range {
             width: 150px;
