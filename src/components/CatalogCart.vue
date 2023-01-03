@@ -36,9 +36,10 @@
 
 <style lang="scss">
     .catalog-cart {
-        margin-bottom: 100px;
+        padding: 60px 0 100px;
+        height: inherit;
         @media (max-width: 470px) {
-            margin-top: 80px;
+            padding-top: 80px;
         }
         &__total {
             position: fixed;

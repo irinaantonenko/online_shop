@@ -82,7 +82,7 @@
         &__options {
             border: solid 1px $color-border;
             position: absolute;
-            top: 20px;
+            top: 30px;
             right: 0;
             width: calc(100% - 2px);
             background-color: $color-light;

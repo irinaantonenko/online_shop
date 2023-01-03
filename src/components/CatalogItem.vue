@@ -1,21 +1,51 @@
 <template>
     <div class="catalog-item">
+        <catalog-popup
+            v-if="isInfoPopupVisible"
+            rightBtnPopup="Add to cart"
+            :popupTitle="product_data.name"
+            @rightBtnAction="addToCart"
+            @closePopup="closeInfoPopup"
+        >
+            <div class="catalog-item__popup">
+                <div class="catalog-item__image-wrap">
+                    <img class="catalog-item__image" :src=" require('../assets/images/' + product_data.image) " alt="img">
+                </div> 
+                <div class="catalog-item__popup-content">
+                    <p class="catalog-item__name">{{product_data.name}}</p>
+                    <p class="catalog-item__price">Price: {{product_data.price}} uah </p> 
+                    <p class="catalog-item__price">{{product_data.category}}</p>
+                </div>
+            </div>
+        </catalog-popup>
         <div class="catalog-item__image-wrap">
             <img class="catalog-item__image" :src=" require('../assets/images/' + product_data.image) " alt="img">
         </div>
         <p class="catalog-item__name">{{product_data.name}}</p>
         <p class="catalog-item__price">Price: {{product_data.price}} uah </p>
-        <button 
-            class="catalog-item__btn btn" 
-            @click="addToCart">
-            Add to cart
-        </button>
+        <div class="catalog-item__btns">
+            <button
+                class="catalog-item__show-info btn"
+                @click="showPopupInfo"
+            >
+                Show info
+            </button>
+            <button 
+                class="catalog-item__btn btn" 
+                @click="addToCart">
+                Add to cart
+            </button>
+        </div>
     </div>
 </template>
 
 <script>
+    import CatalogPopup from './CatalogPopup.vue';
     export default {    
         name: 'CatalogItem',
+        components: {
+            CatalogPopup
+        },
         props: {
             product_data: {
                 type: Object,
@@ -24,9 +54,20 @@
                 }
             }
         },
+        data() {
+            return {
+                isInfoPopupVisible: false
+            }
+        },
         methods: {
+            showPopupInfo() {
+                this.isInfoPopupVisible = true;
+            },
+            closeInfoPopup() {
+                this.isInfoPopupVisible = false;
+            },
             addToCart() {
-                this.$emit('addToCart',this.product_data)
+                this.$emit('addToCart',this.product_data);
             }
         }
     }
@@ -52,8 +93,27 @@
             width: 100%;
             height: 100%;
         }
+        &__btns {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            margin: 0 $margin*3;
+            gap: $padding;            
+        }
+        &__show-info.btn {
+            background-color: $main-color;
+        }
         &__btn {
             cursor: pointer;
+        }
+        &__popup {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        &__popup-content {
+            padding-left: $padding;
         }
     }
 </style>

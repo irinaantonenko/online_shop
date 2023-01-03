@@ -6,11 +6,36 @@
             <div class="catalog__link">Cart: {{CART.length}}</div>
         </router-link>      
         <h1>Catalog</h1>
-        <catalog-select
-            :options="categories"
-            @select="sortByCategories"
-            :selected="selected"
-        />
+
+        <div class="catalog__filters">
+            <catalog-select
+                :options="categories"
+                @select="sortByCategories"
+                :selected="selected"
+            />
+            <div class="catalog__range">
+                <input 
+                    type="range" 
+                    min="980" 
+                    max="1900" 
+                    step="10"
+                    v-model.number="minPrice"
+                    @change="setRangeSlider"
+                >
+                <input 
+                    type="range" 
+                    min="980" 
+                    max="1900"
+                    step="10"
+                    v-model.number="maxPrice"
+                    @change="setRangeSlider"
+                >
+            </div> 
+            <div class="catalog__range-values">
+                <p>Min: {{minPrice}}</p>
+                <p>Max: {{maxPrice}}</p>
+            </div>
+        </div>               
         <div class="catalog__list">
             <catalog-item
                 v-for="product in filteredProducts"
@@ -40,7 +65,11 @@
                     {name: 'Female', value: 'F'}
                 ],
                 selected: 'All',
-                sortedProducts: []
+                sortedProducts: [
+                    
+                ],
+                minPrice: 980,
+                maxPrice: 1900
             }
         },
         computed: {
@@ -49,11 +78,16 @@
                 'CART'
             ]),
             filteredProducts() {
+                let vm = this;
                 if (this.sortedProducts.length) {
                     return this.sortedProducts
-                } else {
+                } else { 
+                   vm.maxPrice = 1900;
+                   vm.minPrice = 890;
+                   vm.selected = 'All';    
                    return this.PRODUCTS
-                }
+                }   
+                             
             }
         },
         methods: {
@@ -65,30 +99,45 @@
                 this.ADD_TO_CART(data)
             },
             sortByCategories(category) {
-                this.sortedProducts = [];
-                let select = this;
-                this.PRODUCTS.map(function(item) {
-                    if (item.category === category.name) {
-                        select.sortedProducts.push(item);
-                    }
-                });
-                this.selected = category.name;
+                let a = this;
+                this.sortedProducts = [...this.PRODUCTS];                              
+                this.sortedProducts = this.sortedProducts.filter( function (item) {                    
+                    return item.price >= a.minPrice && item.price <= a.maxPrice                  
+                })                               
+                if (category) {                                      
+                    this.sortedProducts = this.sortedProducts.filter( function (e) {
+                        a.selected = category.name;                                                       
+                        return e.category === category.name;                        
+                    }) 
+                }                                            
+            },
+            
+            setRangeSlider() {
+                if (this.minPrice > this.maxPrice) {
+                    let stop = this.maxPrice;
+                    this.maxPrice = this.minPrice;
+                    this.minPrice = stop;
+                }
+                this.sortByCategories();
+                this.selected = 'All';
             }
         },
         mounted() {
             this.GET_PRODUCTS_FROM_API()
             .then((response) => {
                 if (response.data) {
-                    console.log('Data arrived!')
+                    console.log('Data arrived!');
                 }
             })
+            this.sortByCategories()
         }
     }
 </script>
 <style lang="scss">
     .catalog {
+        padding-top: 60px;
         @media (max-width: 470px) {
-            margin-top: 80px;
+            padding-top: 80px;
         }
         &__list {
             display: flex;
@@ -104,5 +153,35 @@
             border: solid 1px $color-border;
             cursor: pointer;
         }
+        &__filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+        }
+        &__range {
+            width: 150px;
+            margin: auto $margin*2;
+            text-align: center;
+            position: relative; 
+            @media (max-width: 470px) {
+                width: 100px;
+            }            
+            & svg, & input[type=range] {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+        &__range-values {
+            min-width: 80px;
+            text-align: left;
+        }
+    }
+    input[type=range]::-webkit-slider-thumb {
+        z-index: 2;
+        position: relative;
+        top: 2px;
+        margin-top: -7px;
     }
 </style>
