@@ -74,7 +74,11 @@
         background-color: $color-light;
         @media (max-width: 768px) {
             width: 300px;
-            left: calc(50% - 150px);
+            left: calc(50% - 166px);
+        }
+        @media (max-width: 550px) {
+            width: 260px;
+            left: calc(50% - 146px);
         }
         &__wrapper {
             display: flex;
