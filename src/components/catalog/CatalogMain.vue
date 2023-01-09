@@ -6,7 +6,9 @@
             <div class="catalog__link">Cart: {{CART.length}}</div>
         </router-link>      
         <h1>Catalog</h1>
-
+        <catalog-notification
+            :messages="messages"
+        />
         <div class="catalog__filters">
             <catalog-select
                 :options="categories"
@@ -50,12 +52,14 @@
 <script>
     import CatalogItem from './CatalogItem.vue'
     import CatalogSelect from './CatalogSelect.vue'
+    import CatalogNotification from '../notifications/CatalogNotification.vue'
     import {mapActions, mapGetters} from 'vuex'
     export default {    
         name: 'CatalogMain',
         components: {
             CatalogItem,
-            CatalogSelect
+            CatalogSelect,
+            CatalogNotification
         },
         data() {
             return {
@@ -65,11 +69,10 @@
                     {name: 'Female', value: 'F'}
                 ],
                 selected: 'All',
-                sortedProducts: [
-                    
-                ],
+                sortedProducts: [],
                 minPrice: 980,
-                maxPrice: 1900
+                maxPrice: 1900,
+                messages: []
             }
         },
         computed: {
@@ -97,6 +100,12 @@
             ]),
             addToCart(data) {
                 this.ADD_TO_CART(data)
+                .then(() => {
+                    let timeStamp = Date.now().toLocaleString();
+                    this.messages.unshift(
+                        { name: 'The product has been added to the cart', icon: 'check_circle', id: timeStamp }
+                    )
+                })
             },
             sortByCategories(category) {
                 let a = this;
@@ -127,9 +136,10 @@
             .then((response) => {
                 if (response.data) {
                     console.log('Data arrived!');
-                }
+                    this.sortByCategories()
+                }          
+            
             })
-            this.sortByCategories()
         }
     }
 </script>
@@ -158,7 +168,7 @@
             justify-content: space-between;
             align-items: center;  
             margin: 0 auto;     
-            max-width: 700px;     
+            max-width: 900px;     
         }
         &__range {
             width: 150px;

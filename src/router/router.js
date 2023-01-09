@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import { createWebHistory, createRouter } from 'vue-router'
 
-import CatalogMain from '../components/CatalogMain.vue'
-import CatalogCart from '../components/CatalogCart.vue'
+import CatalogMain from '../components/catalog/CatalogMain.vue'
+import CatalogCart from '../components/cart/CatalogCart.vue'
 
 let routes = [
     {

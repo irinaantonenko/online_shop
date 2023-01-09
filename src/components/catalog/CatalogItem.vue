@@ -9,7 +9,7 @@
         >
             <div class="catalog-item__popup">
                 <div class="catalog-item__image-wrap">
-                    <img class="catalog-item__image" :src=" require('../assets/images/' + product_data.image) " alt="img">
+                    <img class="catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="img">
                 </div> 
                 <div class="catalog-item__popup-content">
                     <p class="catalog-item__name">{{product_data.name}}</p>
@@ -19,7 +19,7 @@
             </div>
         </catalog-popup>
         <div class="catalog-item__image-wrap">
-            <img class="catalog-item__image" :src=" require('../assets/images/' + product_data.image) " alt="img">
+            <img class="catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="img">
         </div>
         <p class="catalog-item__name">{{product_data.name}}</p>
         <p class="catalog-item__price">Price: {{product_data.price}} uah </p>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-    import CatalogPopup from './CatalogPopup.vue';
+    import CatalogPopup from '../popup/CatalogPopup.vue';
     export default {    
         name: 'CatalogItem',
         components: {

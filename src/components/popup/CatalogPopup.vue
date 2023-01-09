@@ -65,7 +65,7 @@
 <style lang="scss">
    .catalog-popup {
         padding: $padding*2;
-        position: absolute;
+        position: fixed;
         top: 250px;
         width: 400px;
         box-shadow: 0 0 $padding*2 0 $color-shadow;
@@ -90,7 +90,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            z-index: 4;
+            z-index: 433;
             max-height: 100%;
         }
         &__header, &__footer {
