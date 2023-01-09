@@ -46,7 +46,7 @@
             },
             timeout: {
                 type: Number,
-                default: 3000
+                default: 2000
             }
         },
         methods: {
