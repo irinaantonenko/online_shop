@@ -10,8 +10,8 @@
         />
     </div>
     
-    <div class="catalog-cart__total">
-        <p class="catalog-cart__total-special">Total:</p>
+    <div class="cart-item-wrapper__total">
+        <p class="cart-item-wrapper__total-title">Total:</p>
         <p>{{cartTotalCost}} uah</p>
     </div>
 </template>
@@ -64,5 +64,25 @@
 </script>
 
 <style lang="scss">
-    
+.cart-item-wrapper {    
+    &__total {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: $padding*2;
+        display: flex;
+        justify-content: center;
+        background-color: $color-special;
+        color: $color-light;
+        font-size: 20px;
+        @media (max-width: 470px) {
+            padding: $padding;
+            font-size: 16px;
+        }
+    }
+    &__total-title {
+        margin-right: $margin*2;
+    }
+}
 </style>

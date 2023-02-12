@@ -41,24 +41,5 @@
         @media (max-width: 470px) {
             padding-top: 80px;
         }
-        &__total {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            padding: $padding*2;
-            display: flex;
-            justify-content: center;
-            background-color: $color-special;
-            color: $color-light;
-            font-size: 20px;
-            @media (max-width: 470px) {
-                padding: $padding;
-                font-size: 16px;
-            }
-        }
-        &__total-special {
-            margin-right: $margin*2;
-        }
     }
 </style>

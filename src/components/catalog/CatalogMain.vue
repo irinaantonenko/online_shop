@@ -137,7 +137,7 @@
                 if (response.data) {
                     console.log('Data arrived!');
                     this.sortByCategories()
-                }          
+                }
             
             })
         }
