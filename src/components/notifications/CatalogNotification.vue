@@ -11,7 +11,6 @@
                 :key="message.id"
                 :class="message.icon"
             >
-
                 <div class="catalog-notification__content-text">
                     <span>{{message.name}}</span>
                     <i class="material-icons">{{message.icon}}</i>
@@ -38,7 +37,7 @@
             },
             rightBtn: {
                 type: String,
-                default: ''
+                default: 'ok'
             },
             leftBtn: {
                 type: String,

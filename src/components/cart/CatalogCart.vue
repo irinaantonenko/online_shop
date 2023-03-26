@@ -11,10 +11,6 @@
             v-if="CART.length" 
             :cart_data="CART"
         />
-        <div v-if="!CART.length" class="catalog-cart__total">
-            <p class="catalog-cart__total-special">Total:</p>
-            <p>0 uah</p>
-        </div>
     </div>
 </template>
 
